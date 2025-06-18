@@ -20,4 +20,6 @@ A proposta é organizar a solução de forma que seja **fácil de entender, mant
 - **IoC** – Injeção de dependência
 - **Web (Presentation)** – Interface ASP.NET Core MVC
 
+##
+
 OBS: Este projeto faz parte de um estudo prático sobre Clean Architecture aplicado ao ASP.NET Core.
