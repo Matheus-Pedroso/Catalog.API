@@ -15,6 +15,7 @@ public sealed class Product : Entity
     public Category Category { get; set; }
 
 
+
     public Product(string name, string description, decimal price, int stock, string image)
     {
         ValidateDomain(name, description, price, stock, image);

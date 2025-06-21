@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36212.18 d17.14
+VisualStudioVersion = 17.14.36212.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Domain", "Catalog.Domain\Catalog.Domain.csproj", "{DC0B9FF6-9A55-46CA-BE33-AAB6A3CFBE47}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Infrastructure.IoC", "Catalog.Infrastructure.IoC\Catalog.Infrastructure.IoC.csproj", "{C416658C-573A-4FB0-A77B-BB5016DF40FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.WebUI", "Catalog.WebUI\Catalog.WebUI.csproj", "{60FF6F1F-CD4A-4B7D-B1C7-6AA0A44B5CAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Domain.Tests", "Catalog.Domain.Tests\Catalog.Domain.Tests.csproj", "{B602180A-C38D-45EF-8C34-09F1895602F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{60FF6F1F-CD4A-4B7D-B1C7-6AA0A44B5CAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60FF6F1F-CD4A-4B7D-B1C7-6AA0A44B5CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60FF6F1F-CD4A-4B7D-B1C7-6AA0A44B5CAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B602180A-C38D-45EF-8C34-09F1895602F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B602180A-C38D-45EF-8C34-09F1895602F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B602180A-C38D-45EF-8C34-09F1895602F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B602180A-C38D-45EF-8C34-09F1895602F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
