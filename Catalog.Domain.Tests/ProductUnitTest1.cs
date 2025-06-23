@@ -1,5 +1,6 @@
 ﻿using Catalog.Domain.Entities;
 using FluentAssertions;
+using Xunit.Sdk;
 
 namespace Catalog.Domain.Tests;
 
@@ -47,6 +48,22 @@ public class ProductUnitTest1
         action.Should()
             .Throw<Catalog.Domain.Validations.DomainExceptionValidation>()
             .WithMessage("Invalid image url, maximum 250 characters");
+    }
+
+    [Fact(DisplayName = "Image null")]
+    public void CreateProduct_NullImage_DomainExceptionValidation()
+    {
+        Action action = () => new Product(1, "Product Name", "Product Description", 100.9M, 99, null);
+        action.Should()
+            .NotThrow<Catalog.Domain.Validations.DomainExceptionValidation>();
+    }
+
+    [Fact(DisplayName = "Image null exception")]
+    public void CreateProduct_NullImage_NullException()
+    {
+        Action action = () => new Product(1, "Product Name", "Product Description", 100.9M, 99, null);
+        action.Should()
+            .NotThrow<NullReferenceException>();
     }
 
     [Theory]
