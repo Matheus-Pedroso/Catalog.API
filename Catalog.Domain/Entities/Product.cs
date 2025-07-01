@@ -15,6 +15,7 @@ public sealed class Product : Entity
     public Category Category { get; set; }
 
 
+    public Product() { }// EF Core constructor 
 
     public Product(string name, string description, decimal price, int stock, string image)
     {

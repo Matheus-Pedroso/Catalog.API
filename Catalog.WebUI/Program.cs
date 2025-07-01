@@ -1,4 +1,7 @@
+using Catalog.Application;
 using Catalog.Infrastructure.IoC;
+using Mapster;
+using MapsterMapper;
 
 namespace Catalog.WebUI;
 

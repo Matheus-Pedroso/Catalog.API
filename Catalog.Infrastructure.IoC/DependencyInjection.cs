@@ -1,7 +1,10 @@
-﻿using Catalog.Domain.Interfaces;
+﻿using Catalog.Application;
+using Catalog.Domain.Interfaces;
 using Catalog.Domain.Interfacesl;
 using Catalog.Infrastructure.Context;
 using Catalog.Infrastructure.Repositories;
+using Mapster;
+using MapsterMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +19,10 @@ public static class DependencyInjection
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
             b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
+        // Configuration for Mapster
+        MapsterConfig.RegisterMappings();
+        services.AddSingleton(TypeAdapterConfig.GlobalSettings);
+        services.AddScoped<IMapper, ServiceMapper>();
 
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
