@@ -1,4 +1,6 @@
 ﻿using Catalog.Application;
+using Catalog.Application.Interfaces;
+using Catalog.Application.Services;
 using Catalog.Domain.Interfaces;
 using Catalog.Domain.Interfacesl;
 using Catalog.Infrastructure.Context;
@@ -26,6 +28,8 @@ public static class DependencyInjection
 
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<ICategoryService, CategoryService>();
+        services.AddScoped<IProductService, ProductService>();
 
         return services;
     }
