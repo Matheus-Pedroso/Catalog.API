@@ -1,4 +1,5 @@
 ﻿using Catalog.Application.DTOs;
+using Catalog.Application.Products.Commands;
 using Mapster;
 
 namespace Catalog.Application;
@@ -17,7 +18,11 @@ public class MapsterConfig
         // TypeAdapterConfig.GlobalSettings.Scan(typeof(CategoryDTO).Assembly);
 
         // Add more mappings as needed      
-        TypeAdapterConfig.GlobalSettings.Scan(typeof(CategoryDTO).Assembly);
-        TypeAdapterConfig.GlobalSettings.Scan(typeof(ProductDTO).Assembly);
+        //TypeAdapterConfig.GlobalSettings.Scan(typeof(CategoryDTO).Assembly);
+        //TypeAdapterConfig.GlobalSettings.Scan(typeof(ProductDTO).Assembly);
+        //TypeAdapterConfig.GlobalSettings.Scan(typeof(ProductCreateCommand).Assembly);
+        //TypeAdapterConfig.GlobalSettings.Scan(typeof(ProductUpdateCommand).Assembly);
+
+        TypeAdapterConfig.GlobalSettings.Scan(typeof(MapsterConfig).Assembly); // can the assembly for all mappings
     }
 }

@@ -1,4 +1,5 @@
-﻿using Catalog.Application;
+﻿using System.Reflection;
+using Catalog.Application;
 using Catalog.Application.Interfaces;
 using Catalog.Application.Services;
 using Catalog.Domain.Interfaces;
@@ -7,6 +8,7 @@ using Catalog.Infrastructure.Context;
 using Catalog.Infrastructure.Repositories;
 using Mapster;
 using MapsterMapper;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +32,9 @@ public static class DependencyInjection
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped<IProductService, ProductService>();
+
+        // MediatR
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly((Assembly.Load("Catalog.Application"))));
 
         return services;
     }
