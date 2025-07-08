@@ -35,7 +35,7 @@ public class ProductDTO
     [MaxLength(250)]
     [DisplayName("Product Image")]
     public string Image { get; set; }
-
     [DisplayName("Category")]
     public int CategoryId { get; set; }
+    public CategoryDTO? Category { get; set; }
 }

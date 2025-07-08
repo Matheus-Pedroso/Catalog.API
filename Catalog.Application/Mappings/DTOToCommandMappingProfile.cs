@@ -16,6 +16,7 @@ public class DTOToCommandMappingProfile : IRegister
         config.NewConfig<ProductDTO, ProductCreateCommand>()
             .Map(dest => dest.Name, src => src.Name)
             .Map(dest => dest.Description, src => src.Description)
+            .Map(dest => dest.Image, src => src.Image)
             .Map(dest => dest.Price, src => src.Price)
             .Map(dest => dest.Stock, src => src.Stock)
             .Map(dest => dest.CategoryId, src => src.CategoryId);
@@ -23,6 +24,7 @@ public class DTOToCommandMappingProfile : IRegister
         config.NewConfig<ProductDTO, ProductUpdateCommand>()
             .Map(dest => dest.Name, src => src.Name)
             .Map(dest => dest.Description, src => src.Description)
+            .Map(dest => dest.Image, src => src.Image)
             .Map(dest => dest.Price, src => src.Price)
             .Map(dest => dest.Stock, src => src.Stock)
             .Map(dest => dest.CategoryId, src => src.CategoryId);

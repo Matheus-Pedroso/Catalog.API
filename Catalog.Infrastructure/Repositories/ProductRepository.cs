@@ -10,7 +10,8 @@ public class ProductRepository(ApplicationDbContext context) : IProductRepositor
     private readonly ApplicationDbContext _context = context;
     public async Task<Product> GetByIdAsync(int? id)
     {
-        return await _context.Product.Include(p => p.Category).SingleOrDefaultAsync(p => p.Id == id);
+        var result = await _context.Product.Include(p => p.Category).SingleOrDefaultAsync(p => p.Id == id);
+        return result;
     }
     public async Task<IEnumerable<Product>> GetAllAsync()
     {

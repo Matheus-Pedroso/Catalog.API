@@ -6,13 +6,13 @@ namespace Catalog.WebUI.Controllers;
 
 public class CategoryController(ICategoryService categoryService) : Controller
 {
+    #region Views
     [HttpGet]
     public async Task<IActionResult> Index()
     {
         var categories = await categoryService.GetCategories();
         return View(categories);
     }
-
     [HttpGet()]
     public async Task<IActionResult> Details(int id)
     {
@@ -21,10 +21,8 @@ public class CategoryController(ICategoryService categoryService) : Controller
         if (category is null) return NotFound();
         return View(category);
     }
-
     [HttpGet()]
     public async Task<IActionResult> Create() => View();
-
     [HttpGet()]
     public async Task<IActionResult> Edit(int id)
     {
@@ -35,7 +33,6 @@ public class CategoryController(ICategoryService categoryService) : Controller
 
         return View("Update", category);
     }
-
     [HttpGet()]
     public async Task<IActionResult> Delete(int id)
     {
@@ -44,6 +41,9 @@ public class CategoryController(ICategoryService categoryService) : Controller
         if (category is null) return NotFound();
         return View(category);
     }
+    #endregion
+
+
 
     [HttpPost]
     public async Task<IActionResult> Create(CategoryDTO request)
