@@ -1,10 +1,12 @@
+using System.Threading.Tasks;
+using Catalog.Domain.Account;
 using Catalog.Infrastructure.IoC;
 
 namespace Catalog.WebUI;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +29,10 @@ public class Program
 
         app.UseRouting();
 
+        // Creating a default users and roles
+        SeedDataAsync(app);
+
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapControllerRoute(
@@ -34,5 +40,15 @@ public class Program
             pattern: "{controller=Home}/{action=Index}/{id?}");
 
         app.Run();
+    }
+
+    private static void SeedDataAsync(WebApplication app)
+    {
+        using (var scope = app.Services.CreateScope())
+        {
+            var seedServices = scope.ServiceProvider.GetRequiredService<ISeedUserRoleInitial>();
+            seedServices.SeedRoles();
+            seedServices.SeedUsers();
+        }
     }
 }

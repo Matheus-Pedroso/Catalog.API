@@ -30,16 +30,12 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <div class="col-md-offset-2 col-md-10">
-                    <button type="submit" class="btn btn-outline-dark">Log in</button>
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                    <a asp-action="Register" class="btn btn-secondary">Register as a new user?</a>
                 </div>
             </div>
-
-            <p>
-                <a asp-action="Register">Register as a new user?</a>
-            </p>
-
         </form>
     </div>
 </div>
@@ -47,4 +43,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-----------------------------------------------------------------------

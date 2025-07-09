@@ -1,9 +1,11 @@
 ﻿using Catalog.Application.DTOs;
 using Catalog.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Catalog.WebUI.Controllers;
 
+[Authorize]
 public class CategoryController(ICategoryService categoryService) : Controller
 {
     #region Views

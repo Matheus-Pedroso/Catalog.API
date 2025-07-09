@@ -8,7 +8,7 @@ public class AccountController(IAuthenticate authentication) : Controller
 {
     #region VIEWS
     [HttpGet]
-    public IActionResult Login(string returnUrl)
+    public IActionResult Login(string returnUrl = "")
         => View(new LoginViewModel { ReturnUrl = returnUrl });
 
     [HttpGet]

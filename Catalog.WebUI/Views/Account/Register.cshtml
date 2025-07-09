@@ -21,8 +21,12 @@
                 <input asp-for="ConfirmPassword" class="form-control" />
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-outline-dark">Register</button>
-            <a asp-controller="Home" asp-action="Index" class="btn btn-link">Return</a>
+            <div class="form-group mt-3">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                    <a asp-controller="Account" asp-action="Login" class="btn btn-secondary">Return</a>
+                </div>
+            </div>
         </form>
     </div>
 </div>

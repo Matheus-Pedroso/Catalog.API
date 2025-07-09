@@ -1,6 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using Catalog.Application.DTOs;
 using Catalog.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -34,6 +35,7 @@ public class ProductController(IProductService productService, ICategoryService 
         return View(product);
     }
 
+    [Authorize(Roles = "Admin")] // User need to be in Admin role and Authenticated to access this action
     [HttpGet()]
     public async Task<IActionResult> Delete(int id)
     {
