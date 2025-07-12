@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.WebUI", "Catalog.We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Domain.Tests", "Catalog.Domain.Tests\Catalog.Domain.Tests.csproj", "{B602180A-C38D-45EF-8C34-09F1895602F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "Catalog.API\Catalog.API.csproj", "{9144ACC7-CBDF-44AD-9CCA-AA6297D209C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{B602180A-C38D-45EF-8C34-09F1895602F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B602180A-C38D-45EF-8C34-09F1895602F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B602180A-C38D-45EF-8C34-09F1895602F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9144ACC7-CBDF-44AD-9CCA-AA6297D209C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9144ACC7-CBDF-44AD-9CCA-AA6297D209C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9144ACC7-CBDF-44AD-9CCA-AA6297D209C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9144ACC7-CBDF-44AD-9CCA-AA6297D209C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,7 +15,7 @@ namespace Catalog.Infrastructure.Repositories
         }
         public async Task<Category> GetById(int? id)
         {
-            return await _context.Category.FindAsync(id);
+            return await _context.Category.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
         }
         public async Task<Category> Created(Category category)
         {
