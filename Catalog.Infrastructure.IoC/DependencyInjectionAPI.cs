@@ -18,14 +18,14 @@ namespace Catalog.Infrastructure.IoC;
 
 public static class DependencyInjectionAPI
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddInfrastructureAPI(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<ApplicationDbContext>(options =>
-        {
+        services.AddDbContext<ApplicationDbContext>(options => 
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
-            b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
-        });
+            b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
+        // Configuration Cookies
+        services.ConfigureApplicationCookie(options => options.AccessDeniedPath = "/Account/Login");
 
         // Configure Identity
         services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -42,11 +42,12 @@ public static class DependencyInjectionAPI
         services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IAuthenticate, AuthenticateServices>();
+        services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitialService>();
+        services.AddScoped<ITokenService, TokenService>();
 
         // MediatR
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly((Assembly.Load("Catalog.Application"))));
 
         return services;
     }
-
 }

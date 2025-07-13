@@ -1,4 +1,5 @@
 using Catalog.Infrastructure.IoC;
+using Microsoft.OpenApi.Models;
 
 namespace Catalog.API
 {
@@ -10,11 +11,12 @@ namespace Catalog.API
 
             // Add services to the container.
             builder.Services.AddInfrastructureAPI(builder.Configuration);
+            builder.Services.AddInfrastructureJWT(builder.Configuration);
+            builder.Services.AddInfrastructureSwagger();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 
@@ -27,8 +29,8 @@ namespace Catalog.API
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseAuthorization();
-
 
             app.MapControllers();
 

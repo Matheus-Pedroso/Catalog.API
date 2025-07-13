@@ -9,7 +9,6 @@ using Catalog.Infrastructure.Identity;
 using Catalog.Infrastructure.Repositories;
 using Mapster;
 using MapsterMapper;
-using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -19,14 +18,14 @@ namespace Catalog.Infrastructure.IoC;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddInfrastructureAPI(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<ApplicationDbContext>(options => 
+        services.AddDbContext<ApplicationDbContext>(options =>
+        {
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
-            b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+            b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
+        });
 
-        // Configuration Cookies
-        services.ConfigureApplicationCookie(options => options.AccessDeniedPath = "/Account/Login");
 
         // Configure Identity
         services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -43,12 +42,11 @@ public static class DependencyInjection
         services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IAuthenticate, AuthenticateServices>();
-        services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitialService>();
-        services.AddScoped<ITokenService, TokenService>();
 
         // MediatR
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly((Assembly.Load("Catalog.Application"))));
 
         return services;
     }
+
 }

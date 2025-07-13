@@ -12,8 +12,28 @@ namespace Catalog.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class TokenController(IAuthenticate authenticate, IConfiguration configuration, ITokenService tokenService) : ControllerBase
+public class TokenController(IAuthenticate authenticate, ITokenService tokenService) : ControllerBase
 {
+    [HttpPost("RegisterUser")]
+    public async Task<ActionResult<UserToken>> Register([FromBody] RegisterModel model)
+    {
+        if (model == null)
+        {
+            return BadRequest("Invalid client request");
+        }
+
+        var userToken = await authenticate.Register(model.Email, model.Password);
+
+        if (!userToken)
+        {
+            ModelState.AddModelError(string.Empty, "Invalid registration attempt.");
+            return BadRequest(ModelState);
+        }
+
+        return Ok($"User {model.Email} was create successfully!");
+    }
+
+
     [HttpPost("LoginUser")]
     public async Task<ActionResult<UserToken>> Login([FromBody] LoginModel model)
     {

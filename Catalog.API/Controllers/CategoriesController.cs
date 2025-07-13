@@ -1,6 +1,7 @@
 ﻿using Catalog.Application.DTOs;
 using Catalog.Application.Interfaces;
 using Catalog.Domain.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,7 @@ namespace Catalog.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class CategoriesController(ICategoryService categoryService) : ControllerBase
 {
     [HttpGet("/GetAll")]

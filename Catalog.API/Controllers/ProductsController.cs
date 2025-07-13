@@ -1,5 +1,6 @@
 ﻿using Catalog.Application.DTOs;
 using Catalog.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace Catalog.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class ProductsController(IProductService productService) : ControllerBase
 {
     [HttpGet]
