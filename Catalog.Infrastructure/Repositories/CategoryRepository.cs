@@ -1,5 +1,5 @@
 ﻿using Catalog.Domain.Entities;
-using Catalog.Domain.Interfacesl;
+using Catalog.Domain.Interfaces;
 using Catalog.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 

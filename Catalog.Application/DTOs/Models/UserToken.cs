@@ -1,4 +1,4 @@
-﻿namespace Catalog.API.Models;
+﻿namespace Catalog.Application.DTOs.Models;
 
 public class UserToken
 {

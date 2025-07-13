@@ -1,7 +1,7 @@
 ﻿using Catalog.Application.DTOs;
 using Catalog.Application.Interfaces;
 using Catalog.Domain.Entities;
-using Catalog.Domain.Interfacesl;
+using Catalog.Domain.Interfaces;
 using MapsterMapper;
 
 namespace Catalog.Application.Services;

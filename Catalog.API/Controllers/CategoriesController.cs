@@ -1,6 +1,6 @@
 ﻿using Catalog.Application.DTOs;
 using Catalog.Application.Interfaces;
-using Catalog.Domain.Interfacesl;
+using Catalog.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

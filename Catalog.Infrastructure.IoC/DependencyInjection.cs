@@ -4,7 +4,6 @@ using Catalog.Application.Interfaces;
 using Catalog.Application.Services;
 using Catalog.Domain.Account;
 using Catalog.Domain.Interfaces;
-using Catalog.Domain.Interfacesl;
 using Catalog.Infrastructure.Context;
 using Catalog.Infrastructure.Identity;
 using Catalog.Infrastructure.Repositories;
@@ -45,6 +44,7 @@ public static class DependencyInjection
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IAuthenticate, AuthenticateServices>();
         services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitialService>();
+        services.AddScoped<ITokenService, TokenService>();
 
         // MediatR
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly((Assembly.Load("Catalog.Application"))));

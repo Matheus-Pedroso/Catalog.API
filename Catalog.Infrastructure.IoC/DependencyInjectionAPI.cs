@@ -4,7 +4,6 @@ using Catalog.Application.Interfaces;
 using Catalog.Application.Services;
 using Catalog.Domain.Account;
 using Catalog.Domain.Interfaces;
-using Catalog.Domain.Interfacesl;
 using Catalog.Infrastructure.Context;
 using Catalog.Infrastructure.Identity;
 using Catalog.Infrastructure.Repositories;
